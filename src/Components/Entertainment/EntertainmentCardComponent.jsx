@@ -1,0 +1,81 @@
+import React from 'react'
+import Slider from "react-slick";
+
+const EntertainmentCard = (props) => {
+  return (
+    <>
+     <div className='w-full h-auto rounded-lg'>
+       <img  
+        className='w-full h-full rounded-lg' 
+        src={props.src}
+        alt="entertainment"
+          onError={(e) => console.log("Image failed:", e.currentTarget.src)}
+        />
+    </div>
+   </> 
+  ); 
+};
+
+const EntertainmentCardSlider = () => { 
+  
+const EntertainmentImage = [
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/workshops-and-more-collection-202305100822.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/fitness-collection-2020081150.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/kids-collection-202007220710.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/comedy-shows-collection-202007220710.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/music-shows-collection-202007220710.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/esports-collection-202011150107.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/self-improvement-collection-202007220710.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/cooking-collection-202007222211.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/interactive-games-collection-202012041129.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/art-and-crafts-collection-202007220710.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/theatre-shows-collection-202012041128.png",
+  "https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800/adventure-collection-202010140844.png",
+];
+
+  const settings =  { 
+    infinite:true,
+    autoplay: false,
+    slidesToShow: 5,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [ 
+      { 
+        breakpoint: 1024,
+        settings: { 
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+       { 
+        breakpoint: 600,
+        settings: { 
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        }
+      },
+      { 
+        breakpoint: 480,
+        settings: { 
+          slidesToShow: 2,
+          slidestoScroll: 1,
+          initialSlide: 2,
+        }
+      }
+    ]
+  };
+
+  return( 
+    <>
+    <Slider {...settings}>
+      {EntertainmentImage.map((image, index)=>(
+
+       <EntertainmentCard key={index}src={image} />
+      ))}
+    </Slider>
+    </>
+  );
+}
+
+export default EntertainmentCardSlider;
