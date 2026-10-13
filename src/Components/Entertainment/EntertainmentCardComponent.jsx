@@ -71,7 +71,7 @@ const EntertainmentImage = [
     <Slider {...settings}>
       {EntertainmentImage.map((image, index)=>(
 
-       <EntertainmentCard key={index}src={image} />
+       <EntertainmentCard src={image} key={index} />
       ))}
     </Slider>
     </>
